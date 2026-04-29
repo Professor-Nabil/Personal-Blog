@@ -15,19 +15,19 @@ even if the data is just hardcoded for now.
   - [x] Set up `src/server.ts` with EJS config and static file middleware.
   - [x] Create a basic "Hello World" route to test the setup.
 
-- [ ] **Commit 3: Master Layout & Partials**
-  - [ ] Create `src/views/partials/header.ejs` (Navigation for Home).
-  - [ ] Create `src/views/partials/footer.ejs` (Copyright & Simple links).
-  - [ ] Create `public/css/style.css` with base typography (Serif fonts for that blog feel).
+- [x] **Commit 3: Master Layout & Partials**
+  - [x] Create `src/views/partials/header.ejs` (Navigation for Home).
+  - [x] Create `src/views/partials/footer.ejs` (Copyright & Simple links).
+  - [x] Create `public/css/style.css` with base typography (Serif fonts for that blog feel).
 
-- [ ] **Commit 4: Guest Section Mockups**
-  - [ ] Create `src/views/guest/home.ejs` with dummy list of articles.
-  - [ ] Create `src/views/guest/article.ejs` to show a single dummy post.
-  - [ ] Map routes `/` and `/article/:id` in `server.ts`.
+- [x] **Commit 4: Guest Section Mockups**
+  - [x] Create `src/views/guest/home.ejs` with dummy list of articles.
+  - [x] Create `src/views/guest/article.ejs` to show a single dummy post.
+  - [x] Map routes `/` and `/article/:id` in `server.ts`.
 
-- [ ] **Commit 5: Admin Layout & Dashboard Mockup**
-  - [ ] Create `src/views/admin/dashboard.ejs` with a table of posts and "Edit/Delete" buttons.
-  - [ ] Add an "Admin" version of the navigation to differentiate from the guest view.
+- [x] **Commit 5: Admin Layout & Dashboard Mockup**
+  - [x] Create `src/views/admin/dashboard.ejs` with a table of posts and "Edit/Delete" buttons.
+  - [x] Add an "Admin" version of the navigation to differentiate from the guest view.
 
 - [ ] **Commit 6: Admin Form Mockups (New & Edit)**
   - [ ] Create `src/views/admin/new.ejs` with a form (Title, Date, Content).

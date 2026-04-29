@@ -1,0 +1,163 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --accent-color: #007bff;
+  --muted-color: #666666;
+  --border-color: #eaeaea;
+  --max-width: 700px;
+}
+
+body {
+  font-family: "Georgia", serif; /* Classic blog font */
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* UI Elements (Sans-Serif) */
+nav,
+header,
+footer,
+button,
+.admin-badge {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+/* Form Basics for later */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.post-preview h2 {
+  margin-bottom: 0.5rem;
+}
+
+.post-preview h2 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+  text-decoration: underline;
+}
+
+.post-preview small {
+  color: var(--muted-color);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.full-post header {
+  margin-bottom: 2rem;
+}
+
+.muted {
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+/* Admin Specific Styles */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+  background-color: #f9f9f9;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+.btn-edit {
+  background-color: #ffc107;
+  color: #000;
+  margin-right: 5px;
+}
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.action-group {
+  display: flex;
+}
