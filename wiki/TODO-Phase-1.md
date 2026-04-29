@@ -5,11 +5,11 @@ By the end of this,
 you will be able to click through all 5 pages,
 even if the data is just hardcoded for now.
 
-- [ ] **Commit 1: Project Initialization**
-  - [ ] Initialize `npm` and install core dependencies (`express`, `ejs`, `dotenv`).
-  - [ ] Install dev dependencies (`typescript`, `tsx`, `@types/node`, `@types/express`).
-  - [ ] Configure `tsconfig.json` for ESM.
-  - [ ] Create the folder structure: `src/views/guest`, `src/views/admin`, `src/views/partials`, `public/css`, `src/data`.
+- [x] **Commit 1: Project Initialization**
+  - [x] Initialize `npm` and install core dependencies (`express`, `ejs`, `dotenv`).
+  - [x] Install dev dependencies (`typescript`, `tsx`, `@types/node`, `@types/express`).
+  - [x] Configure `tsconfig.json` for ESM.
+  - [x] Create the folder structure: `src/views/guest`, `src/views/admin`, `src/views/partials`, `public/css`, `src/data`.
 
 - [ ] **Commit 2: Server Boilerplate**
   - [ ] Set up `src/server.ts` with EJS config and static file middleware.
