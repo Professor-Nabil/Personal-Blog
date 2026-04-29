@@ -11,9 +11,9 @@ even if the data is just hardcoded for now.
   - [x] Configure `tsconfig.json` for ESM.
   - [x] Create the folder structure: `src/views/guest`, `src/views/admin`, `src/views/partials`, `public/css`, `src/data`.
 
-- [ ] **Commit 2: Server Boilerplate**
-  - [ ] Set up `src/server.ts` with EJS config and static file middleware.
-  - [ ] Create a basic "Hello World" route to test the setup.
+- [x] **Commit 2: Server Boilerplate**
+  - [x] Set up `src/server.ts` with EJS config and static file middleware.
+  - [x] Create a basic "Hello World" route to test the setup.
 
 - [ ] **Commit 3: Master Layout & Partials**
   - [ ] Create `src/views/partials/header.ejs` (Navigation for Home).
