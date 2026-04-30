@@ -12,12 +12,15 @@ import {
 } from "./services/storage.js";
 import { Article } from "./types.js";
 import { checkAuth } from "./middleware/auth.js";
+import { formatDate } from "./utils/formatters.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.locals.formatDate = formatDate; // --- Global Template Variables ---
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));

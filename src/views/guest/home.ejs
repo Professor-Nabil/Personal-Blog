@@ -8,7 +8,7 @@
         <% articles.forEach(article => { %>
             <article class="post-preview">
                 <h2><a href="/article/<%= article.id %>"><%= article.title %></a></h2>
-                <small><%= article.date %></small>
+                <small><%= formatDate(article.date) %></small>
                 <p><%= article.excerpt %></p>
                 <hr>
             </article>

@@ -15,10 +15,10 @@ Moving logic out of `server.ts` to keep the entry point clean and organized.
 
 Making the data more readable and the navigation more robust.
 
-- [ ] **Commit 2: Human-Readable Dates**
-  - [ ] Create a utility function (or use `Intl.DateTimeFormat`) to convert `YYYY-MM-DD` to `Month DD, YYYY`.
-  - [ ] Update `guest/home.ejs` and `guest/article.ejs` to use this formatted date.
-  - [ ] _Optional:_ Keep the ISO format in the Admin Dashboard for easy sorting.
+- [x] **Commit 2: Human-Readable Dates**
+  - [x] Create a utility function (or use `Intl.DateTimeFormat`) to convert `YYYY-MM-DD` to `Month DD, YYYY`.
+  - [x] Update `guest/home.ejs` and `guest/article.ejs` to use this formatted date.
+  - [x] _Optional:_ Keep the ISO format in the Admin Dashboard for easy sorting.
 
 - [ ] **Commit 3: Global 404 & Error Handling**
   - [ ] Create a `src/views/guest/404.ejs` template.
