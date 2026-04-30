@@ -30,6 +30,6 @@ in one place (`storage.ts`) so our routes stay clean and simple.
   - [x] Call the `Storage Service` to fetch a specific post.
   - [x] Verify that clicking a post on the home page opens the correct content.
 
-- [ ] **Commit 6: Integration - Admin Dashboard**
-  - [ ] Update the `GET /admin/dashboard` route in `server.ts`.
-  - [ ] Ensure the admin table is now populated with real file data instead of mock data.
+- [x] **Commit 6: Integration - Admin Dashboard**
+  - [x] Update the `GET /admin/dashboard` route in `server.ts`.
+  - [x] Ensure the admin table is now populated with real file data instead of mock data.

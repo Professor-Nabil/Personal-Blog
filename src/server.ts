@@ -59,13 +59,21 @@ app.get("/article/:id", async (req, res) => {
 // --- Admin Routes (Still using mock data temporarily for the dashboard) ---
 // We will fix the Admin Dashboard in the next commit
 
+// --- Admin Routes ---
+
 app.get("/admin/dashboard", async (req, res) => {
-  // We'll update this properly in Commit 6, but let's make it real now
-  const articles = await getAllArticles();
-  res.render("admin/dashboard", {
-    title: "Admin Dashboard",
-    articles,
-  });
+  try {
+    // Fetch real data from the filesystem
+    const articles = await getAllArticles();
+
+    res.render("admin/dashboard", {
+      title: "Admin Dashboard",
+      articles, // This now contains real Article objects
+    });
+  } catch (error) {
+    console.error("Error loading admin dashboard:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.get("/admin/new", (req, res) => {
