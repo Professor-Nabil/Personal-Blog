@@ -11,10 +11,10 @@ Before we can use the routes, we need the logic to write data to the disk.
   - [x] Use `fs.writeFile` to save the article as a JSON string.
   - [x] Ensure it can handle both new articles and overwriting existing ones.
 
-- [ ] **Commit 2: Delete Logic**
-  - [ ] Implement `deleteArticle(id: string)` in `src/services/storage.ts`.
-  - [ ] Use `fs.unlink` to remove the file.
-  - [ ] Add error handling to check if the file exists before deleting.
+- [x] **Commit 2: Delete Logic**
+  - [x] Implement `deleteArticle(id: string)` in `src/services/storage.ts`.
+  - [x] Use `fs.unlink` to remove the file.
+  - [x] Add error handling to check if the file exists before deleting.
 
 ---
 

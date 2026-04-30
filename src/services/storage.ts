@@ -90,3 +90,22 @@ export const saveArticle = async (article: Article): Promise<void> => {
     throw new Error("Storage Error: Could not write to disk.");
   }
 };
+
+/**
+ * Deletes an article file from the disk based on its ID.
+ */
+export const deleteArticle = async (id: string): Promise<void> => {
+  try {
+    const filePath = getFilePath(id);
+
+    // Check if file exists before trying to delete
+    await fs.access(filePath);
+
+    await fs.unlink(filePath);
+  } catch (error) {
+    console.error(`Failed to delete article ${id}:`, error);
+    // If the file doesn't exist, we can consider the job "done"
+    // but we'll throw an error if it's a permission/system issue
+    throw new Error("Storage Error: Could not delete the file from disk.");
+  }
+};
