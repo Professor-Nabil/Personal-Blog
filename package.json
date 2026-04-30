@@ -8,7 +8,7 @@
     "dev": "tsx watch src/server.ts",
     "test": "vitest",
     "check": "tsc --noEmit",
-    "build": "tsc",
+    "build": "tsc && cp -r src/views dist/ && cp -r src/data dist/",
     "tree": "clear; tree -I node_modules -I .git -I wiki -I dist -a"
   },
   "repository": {

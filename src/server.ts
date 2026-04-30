@@ -243,8 +243,6 @@ app.post("/admin/delete/:id", checkAuth, async (req, res) => {
     // Call the service to remove the file from src/data
     await deleteArticle(id);
 
-    console.log(`🗑️ Article ${id} deleted successfully.`);
-
     // Redirect back to the dashboard to show the updated list
     res.redirect("/admin/dashboard");
   } catch (error) {

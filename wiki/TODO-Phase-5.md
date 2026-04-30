@@ -31,10 +31,10 @@ Making the data more readable and the navigation more robust.
 
 Final cleanup before you consider the MVP "Done."
 
-- [ ] **Commit 4: Environmental Sanity**
-  - [ ] Ensure `.env.example` is updated with all current keys (`PORT`, `ADMIN_PASSWORD`, `SESSION_SECRET`).
-  - [ ] Remove any remaining `console.log` statements used for debugging during development.
-  - [ ] Run a final `npm run check` and `npm run build` to ensure the TypeScript project compiles perfectly.
+- [x] **Commit 4: Environmental Sanity**
+  - [x] Ensure `.env.example` is updated with all current keys (`PORT`, `ADMIN_PASSWORD`, `SESSION_SECRET`).
+  - [x] Remove any remaining `console.log` statements used for debugging during development.
+  - [x] Run a final `npm run check` and `npm run build` to ensure the TypeScript project compiles perfectly.
 
 ---
 
