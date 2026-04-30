@@ -16,9 +16,9 @@ in one place (`storage.ts`) so our routes stay clean and simple.
   - [x] Logic to parse each `.json` file into an `Article` object.
   - [x] Sort articles by date (newest first).
 
-- [ ] **Commit 3: Read Single Article Logic**
-  - [ ] Implement `getArticleById(id: string)` or `getArticleBySlug(slug: string)`.
-  - [ ] Add error handling if a file is missing.
+- [x] **Commit 3: Read Single Article Logic**
+  - [x] Implement `getArticleById(id: string)` or `getArticleBySlug(slug: string)`.
+  - [x] Add error handling if a file is missing.
 
 - [ ] **Commit 4: Integration - Home Page**
   - [ ] Update the `GET /` route in `server.ts`.

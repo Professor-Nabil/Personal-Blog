@@ -58,3 +58,19 @@ export const getAllArticles = async (): Promise<Article[]> => {
     return [];
   }
 };
+
+/**
+ * Fetches a single article by its ID.
+ * Returns null if the article is not found or the file is corrupted.
+ */
+export const getArticleById = async (id: string): Promise<Article | null> => {
+  try {
+    const filePath = getFilePath(id);
+    const content = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(content) as Article;
+  } catch (error) {
+    // We treat "file not found" as a null return rather than a crash
+    console.error(`Could not find article with ID: ${id}`);
+    return null;
+  }
+};
