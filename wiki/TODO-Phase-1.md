@@ -29,10 +29,10 @@ even if the data is just hardcoded for now.
   - [x] Create `src/views/admin/dashboard.ejs` with a table of posts and "Edit/Delete" buttons.
   - [x] Add an "Admin" version of the navigation to differentiate from the guest view.
 
-- [ ] **Commit 6: Admin Form Mockups (New & Edit)**
-  - [ ] Create `src/views/admin/new.ejs` with a form (Title, Date, Content).
-  - [ ] Create `src/views/admin/edit.ejs` (same form, but pre-filled with dummy text).
-  - [ ] Map routes `/admin/dashboard`, `/admin/new`, and `/admin/edit/:id`.
+- [x] **Commit 6: Admin Form Mockups (New & Edit)**
+  - [x] Create `src/views/admin/new.ejs` with a form (Title, Date, Content).
+  - [x] Create `src/views/admin/edit.ejs` (same form, but pre-filled with dummy text).
+  - [x] Map routes `/admin/dashboard`, `/admin/new`, and `/admin/edit/:id`.
 
 - [ ] **Commit 7: Article Data Schema Definition**
   - [ ] Create a `src/types.ts` file.

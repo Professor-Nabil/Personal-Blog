@@ -35,7 +35,6 @@ const mockArticles = [
   },
 ];
 
-// --- Guest Routes ---
 app.get("/", (req, res) => {
   res.render("guest/home", { title: "Home", articles: mockArticles });
 });
@@ -48,7 +47,6 @@ app.get("/article/:id", (req, res) => {
   });
 });
 
-// --- Admin Routes ---
 app.get("/admin/dashboard", (req, res) => {
   res.render("admin/dashboard", {
     title: "Admin Dashboard",
@@ -56,7 +54,24 @@ app.get("/admin/dashboard", (req, res) => {
   });
 });
 
-// ... app.listen remains the same
+app.get("/admin/dashboard", (req, res) => {
+  res.render("admin/dashboard", {
+    title: "Admin Dashboard",
+    articles: mockArticles,
+  });
+});
+
+app.get("/admin/new", (req, res) => {
+  res.render("admin/new", { title: "New Article" });
+});
+
+app.get("/admin/edit/:id", (req, res) => {
+  const article = mockArticles.find((a) => a.id === req.params.id);
+  res.render("admin/edit", {
+    title: "Update Article",
+    article,
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`
