@@ -11,23 +11,7 @@ import {
   deleteArticle,
 } from "./services/storage.js";
 import { Article } from "./types.js";
-
-// ==============================================================================
-// --- Middleware ---
-import { Request, Response, NextFunction } from "express";
-/**
- * The Gatekeeper: Checks if the user is authenticated.
- * If not, redirects to the login page.
- */
-const checkAuth = (req: Request, res: Response, next: NextFunction) => {
-  if (req.session && req.session.isLoggedIn) {
-    // User is authenticated, proceed to the next function
-    return next();
-  }
-  // User is not authenticated, kick them back to login
-  res.redirect("/login");
-};
-// ==============================================================================
+import { checkAuth } from "./middleware/auth.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
