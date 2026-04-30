@@ -32,10 +32,10 @@ Creating the interface and logic to grant access.
 
 Ensuring the admin routes are actually private.
 
-- [ ] **Commit 4: Middleware Protection**
-  - [ ] Create a `checkAuth` middleware function.
-  - [ ] Apply the middleware to all `/admin/*` routes.
-  - [ ] Logic: If not logged in, redirect to `/login`.
+- [x] **Commit 4: Middleware Protection**
+  - [x] Create a `checkAuth` middleware function.
+  - [x] Apply the middleware to all `/admin/*` routes.
+  - [x] Logic: If not logged in, redirect to `/login`.
 
 - [ ] **Commit 5: Logout & Security Polish**
   - [ ] Add `POST /logout` to clear the session.

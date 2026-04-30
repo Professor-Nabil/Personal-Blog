@@ -12,6 +12,23 @@ import {
 } from "./services/storage.js";
 import { Article } from "./types.js";
 
+// ==============================================================================
+// --- Middleware ---
+import { Request, Response, NextFunction } from "express";
+/**
+ * The Gatekeeper: Checks if the user is authenticated.
+ * If not, redirects to the login page.
+ */
+const checkAuth = (req: Request, res: Response, next: NextFunction) => {
+  if (req.session && req.session.isLoggedIn) {
+    // User is authenticated, proceed to the next function
+    return next();
+  }
+  // User is not authenticated, kick them back to login
+  res.redirect("/login");
+};
+// ==============================================================================
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -117,7 +134,7 @@ app.post("/login", (req, res) => {
 // --- Admin Routes ---
 
 // 1. Dashboard
-app.get("/admin/dashboard", async (req, res) => {
+app.get("/admin/dashboard", checkAuth, async (req, res) => {
   try {
     const articles = await getAllArticles();
     res.render("admin/dashboard", {
@@ -131,12 +148,12 @@ app.get("/admin/dashboard", async (req, res) => {
 });
 
 // 2. New Article (GET - The one that was missing/broken)
-app.get("/admin/new", (req, res) => {
+app.get("/admin/new", checkAuth, (req, res) => {
   res.render("admin/new", { title: "New Article" });
 });
 
 // 3. New Article (POST - Logic from Commit 3)
-app.post("/admin/new", async (req, res) => {
+app.post("/admin/new", checkAuth, async (req, res) => {
   try {
     const { title, date, content } = req.body;
 
@@ -166,8 +183,10 @@ app.post("/admin/new", async (req, res) => {
 });
 
 // 4. Edit Article (GET)
-app.get("/admin/edit/:id", async (req, res) => {
-  const article = await getArticleById(req.params.id);
+app.get("/admin/edit/:id", checkAuth, async (req, res) => {
+  const article = await getArticleById(req.params.id as string);
+  // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+  // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [187, 40]
   if (!article) return res.status(404).send("Article not found");
 
   res.render("admin/edit", {
@@ -177,7 +196,7 @@ app.get("/admin/edit/:id", async (req, res) => {
 });
 
 // 5. Update Article (POST)
-app.post("/admin/edit/:id", async (req, res) => {
+app.post("/admin/edit/:id", checkAuth, async (req, res) => {
   try {
     const { title, date, content } = req.body;
 
@@ -188,10 +207,12 @@ app.post("/admin/edit/:id", async (req, res) => {
         .send("Validation Error: Title and Content are required.");
     }
 
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     // 1. Check if the article exists
     const existingArticle = await getArticleById(id);
+    // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+    // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [213, 50]
     if (!existingArticle) {
       return res.status(404).send("Article not found");
     }
@@ -218,12 +239,14 @@ app.post("/admin/edit/:id", async (req, res) => {
 });
 
 // 6. Delete Article (POST)
-app.post("/admin/delete/:id", async (req, res) => {
+app.post("/admin/delete/:id", checkAuth, async (req, res) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     // Call the service to remove the file from src/data
     await deleteArticle(id);
+    // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
+    // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [247, 25]
 
     console.log(`🗑️ Article ${id} deleted successfully.`);
 
