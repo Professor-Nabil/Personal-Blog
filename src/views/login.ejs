@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<div class="form-container" style="max-width: 400px; margin: 50px auto;">
+    <h1>Admin Login</h1>
+    
+    <% if (locals.error) { %>
+        <p style="color: #e74c3c; background: #fadbd8; padding: 10px; border-radius: 4px;">
+            <%= error %>
+        </p>
+    <% } %>
+
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label for="password">Enter Master Password</label>
+            <input type="password" id="password" name="password" required autofocus>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+        </div>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

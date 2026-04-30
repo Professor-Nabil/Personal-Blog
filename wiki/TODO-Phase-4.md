@@ -15,10 +15,10 @@ We need to set up the tools that allow the server to "remember" who we are.
 
 Creating the interface and logic to grant access.
 
-- [ ] **Commit 2: Login Interface**
-  - [ ] Create `src/views/login.ejs`.
-  - [ ] Add a simple CSS section for the login box.
-  - [ ] Add the `GET /login` route in `server.ts`.
+- [x] **Commit 2: Login Interface**
+  - [x] Create `src/views/login.ejs`.
+  - [x] Add a simple CSS section for the login box.
+  - [x] Add the `GET /login` route in `server.ts`.
 
 - [ ] **Commit 3: Authentication Logic**
   - [ ] Create `POST /login` route.

@@ -79,6 +79,16 @@ app.get("/article/:id", async (req, res) => {
   }
 });
 
+// --- Auth Routes ---
+
+app.get("/login", (req, res) => {
+  // If already logged in, skip the login page
+  if (req.session.isLoggedIn) {
+    return res.redirect("/admin/dashboard");
+  }
+  res.render("login", { title: "Login", error: null });
+});
+
 // --- Admin Routes ---
 
 // 1. Dashboard
