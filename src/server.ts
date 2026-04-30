@@ -67,9 +67,8 @@ app.get("/article/:id", async (req, res) => {
     const article = await getArticleById(req.params.id);
 
     if (!article) {
-      return res.status(404).render("guest/article", {
-        title: "Not Found",
-        article: null,
+      return res.status(404).render("guest/404", {
+        title: "Page Not Found",
       });
     }
 
@@ -184,9 +183,10 @@ app.post("/admin/new", checkAuth, async (req, res) => {
 // 4. Edit Article (GET)
 app.get("/admin/edit/:id", checkAuth, async (req, res) => {
   const article = await getArticleById(req.params.id as string);
-  // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
-  // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [187, 40]
-  if (!article) return res.status(404).send("Article not found");
+
+  if (!article) {
+    return res.status(404).render("guest/404", { title: "Article Not Found" });
+  }
 
   res.render("admin/edit", {
     title: "Update Article",
@@ -210,8 +210,6 @@ app.post("/admin/edit/:id", checkAuth, async (req, res) => {
 
     // 1. Check if the article exists
     const existingArticle = await getArticleById(id);
-    // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
-    // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [213, 50]
     if (!existingArticle) {
       return res.status(404).send("Article not found");
     }
@@ -244,8 +242,6 @@ app.post("/admin/delete/:id", checkAuth, async (req, res) => {
 
     // Call the service to remove the file from src/data
     await deleteArticle(id);
-    // ├╴  Argument of type 'string | string[]' is not assignable to parameter of type 'string'.
-    // │      Type 'string[]' is not assignable to type 'string'. ts (2345) [247, 25]
 
     console.log(`🗑️ Article ${id} deleted successfully.`);
 
@@ -255,6 +251,12 @@ app.post("/admin/delete/:id", checkAuth, async (req, res) => {
     console.error("Error deleting article:", error);
     res.status(500).send("Failed to delete the article.");
   }
+});
+
+// --- 404 Catch-all ---
+// This MUST be the last route defined
+app.use((req, res) => {
+  res.status(404).render("guest/404", { title: "Page Not Found" });
 });
 
 // Initialize storage and then start server

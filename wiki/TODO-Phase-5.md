@@ -20,10 +20,10 @@ Making the data more readable and the navigation more robust.
   - [x] Update `guest/home.ejs` and `guest/article.ejs` to use this formatted date.
   - [x] _Optional:_ Keep the ISO format in the Admin Dashboard for easy sorting.
 
-- [ ] **Commit 3: Global 404 & Error Handling**
-  - [ ] Create a `src/views/guest/404.ejs` template.
-  - [ ] Add a "Catch-all" route at the bottom of `server.ts` to render the 404 page for any undefined URL.
-  - [ ] Refactor the article logic to redirect to this 404 page if `getArticleById` returns null.
+- [x] **Commit 3: Global 404 & Error Handling**
+  - [x] Create a `src/views/guest/404.ejs` template.
+  - [x] Add a "Catch-all" route at the bottom of `server.ts` to render the 404 page for any undefined URL.
+  - [x] Refactor the article logic to redirect to this 404 page if `getArticleById` returns null.
 
 ---
 
