@@ -1,4 +1,5 @@
 import express from "express";
+import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
@@ -23,6 +24,26 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Configure Session Middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "fallback-secret-for-dev",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // Set to true if using HTTPS
+      maxAge: 1000 * 60 * 60 * 24, // 24 hours
+    },
+  }),
+);
+
+// Add this helpful TypeScript augmentation so the compiler knows about our custom session property
+declare module "express-session" {
+  interface SessionData {
+    isLoggedIn: boolean;
+  }
+}
 
 // --- Guest Routes ---
 

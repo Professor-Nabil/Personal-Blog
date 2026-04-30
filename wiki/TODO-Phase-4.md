@@ -1,0 +1,59 @@
+## TODO-Phase-4.md | Security & Authentication
+
+### 🛠️ Step 1: Infrastructure & Environment
+
+We need to set up the tools that allow the server to "remember" who we are.
+
+- [x] **Commit 1: Setup Session & Env**
+  - [x] Install `express-session` and `@types/express-session`.
+  - [x] Create a `.env` file with `ADMIN_PASSWORD` and `SESSION_SECRET`.
+  - [x] Configure `express-session` middleware in `server.ts`.
+
+---
+
+### 🔑 Step 2: The Login Flow
+
+Creating the interface and logic to grant access.
+
+- [ ] **Commit 2: Login Interface**
+  - [ ] Create `src/views/login.ejs`.
+  - [ ] Add a simple CSS section for the login box.
+  - [ ] Add the `GET /login` route in `server.ts`.
+
+- [ ] **Commit 3: Authentication Logic**
+  - [ ] Create `POST /login` route.
+  - [ ] Logic: Compare form password with `.env` password.
+  - [ ] On success: Set `session.isLoggedIn = true` and redirect to dashboard.
+  - [ ] On failure: Redirect back to login with an error message.
+
+---
+
+### 🛡️ Step 3: The Gatekeeper
+
+Ensuring the admin routes are actually private.
+
+- [ ] **Commit 4: Middleware Protection**
+  - [ ] Create a `checkAuth` middleware function.
+  - [ ] Apply the middleware to all `/admin/*` routes.
+  - [ ] Logic: If not logged in, redirect to `/login`.
+
+- [ ] **Commit 5: Logout & Security Polish**
+  - [ ] Add `POST /logout` to clear the session.
+  - [ ] Add a "Logout" button to the Admin Header.
+  - [ ] Final verification: Try accessing `/admin/dashboard` in an Incognito window.
+
+---
+
+### ⚠️ Important Planning Notes
+
+1. **Session Security**:
+   Since we are in development,
+   we will use the default memory store for sessions.
+   (Note: Restaring the server will log you out).
+
+2. **Environment Variables**:
+   We must ensure `.env` is in `.gitignore` so your password never reaches GitHub.
+
+3. **No User Database**:
+   For this MVP, we aren't creating a `users.json`.
+   We are using a single "God Mode" password defined in your environment variables.
