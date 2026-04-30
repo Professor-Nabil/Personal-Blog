@@ -20,11 +20,11 @@ Creating the interface and logic to grant access.
   - [x] Add a simple CSS section for the login box.
   - [x] Add the `GET /login` route in `server.ts`.
 
-- [ ] **Commit 3: Authentication Logic**
-  - [ ] Create `POST /login` route.
-  - [ ] Logic: Compare form password with `.env` password.
-  - [ ] On success: Set `session.isLoggedIn = true` and redirect to dashboard.
-  - [ ] On failure: Redirect back to login with an error message.
+- [x] **Commit 3: Authentication Logic**
+  - [x] Create `POST /login` route.
+  - [x] Logic: Compare form password with `.env` password.
+  - [x] On success: Set `session.isLoggedIn = true` and redirect to dashboard.
+  - [x] On failure: Redirect back to login with an error message.
 
 ---
 

@@ -89,6 +89,31 @@ app.get("/login", (req, res) => {
   res.render("login", { title: "Login", error: null });
 });
 
+app.post("/login", (req, res) => {
+  const { password } = req.body;
+  const masterPassword = process.env.ADMIN_PASSWORD;
+
+  if (password === masterPassword) {
+    // Grant access
+    req.session.isLoggedIn = true;
+
+    // Ensure the session is saved before redirecting
+    req.session.save((err) => {
+      if (err) {
+        console.error("Session save error:", err);
+        return res.status(500).send("Internal Server Error");
+      }
+      res.redirect("/admin/dashboard");
+    });
+  } else {
+    // Deny access
+    res.render("login", {
+      title: "Login",
+      error: "Invalid password. Please try again.",
+    });
+  }
+});
+
 // --- Admin Routes ---
 
 // 1. Dashboard
