@@ -20,10 +20,10 @@ in one place (`storage.ts`) so our routes stay clean and simple.
   - [x] Implement `getArticleById(id: string)` or `getArticleBySlug(slug: string)`.
   - [x] Add error handling if a file is missing.
 
-- [ ] **Commit 4: Integration - Home Page**
-  - [ ] Update the `GET /` route in `server.ts`.
-  - [ ] Replace `mockArticles` with a call to the `Storage Service`.
-  - [ ] Verify that the Home page displays data from `sample.json`.
+- [x] **Commit 4: Integration - Home Page**
+  - [x] Update the `GET /` route in `server.ts`.
+  - [x] Replace `mockArticles` with a call to the `Storage Service`.
+  - [x] Verify that the Home page displays data from `sample.json`.
 
 - [ ] **Commit 5: Integration - Article Details**
   - [ ] Update the `GET /article/:id` route in `server.ts`.

@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import "dotenv/config";
 import { Article } from "./types.js";
 import { initStorage } from "./services/storage.js";
+import { getAllArticles } from "./services/storage.js";
 
 // Fix for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -40,8 +41,20 @@ const mockArticles: Article[] = [
   },
 ];
 
-app.get("/", (req, res) => {
-  res.render("guest/home", { title: "Home", articles: mockArticles });
+// --- Guest Routes ---
+app.get("/", async (req, res) => {
+  try {
+    // Replace mockArticles with the real service call
+    const articles = await getAllArticles();
+
+    res.render("guest/home", {
+      title: "Home",
+      articles,
+    });
+  } catch (error) {
+    console.error("Error loading home page:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.get("/article/:id", (req, res) => {
