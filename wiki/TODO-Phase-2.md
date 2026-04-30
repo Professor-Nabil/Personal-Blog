@@ -10,11 +10,11 @@ in one place (`storage.ts`) so our routes stay clean and simple.
   - [x] Define the constant path to the `src/data` folder.
   - [x] Add a helper function to ensure the data directory exists.
 
-- [ ] **Commit 2: Read All Articles Logic**
-  - [ ] Implement `getAllArticles()` function.
-  - [ ] Logic to read the `src/data` directory.
-  - [ ] Logic to parse each `.json` file into an `Article` object.
-  - [ ] Sort articles by date (newest first).
+- [x] **Commit 2: Read All Articles Logic**
+  - [x] Implement `getAllArticles()` function.
+  - [x] Logic to read the `src/data` directory.
+  - [x] Logic to parse each `.json` file into an `Article` object.
+  - [x] Sort articles by date (newest first).
 
 - [ ] **Commit 3: Read Single Article Logic**
   - [ ] Implement `getArticleById(id: string)` or `getArticleBySlug(slug: string)`.
