@@ -131,6 +131,18 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Logout error:", err);
+      return res.status(500).send("Could not log out.");
+    }
+    // Clear the cookie on the client side
+    res.clearCookie("connect.sid");
+    res.redirect("/");
+  });
+});
+
 // --- Admin Routes ---
 
 // 1. Dashboard

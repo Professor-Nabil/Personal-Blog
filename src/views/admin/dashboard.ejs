@@ -2,7 +2,12 @@
 
 <div class="admin-header">
     <h1>Admin Dashboard</h1>
-    <a href="/admin/new" class="btn btn-primary">+ Add New Article</a>
+    <div class="admin-actions">
+        <a href="/admin/new" class="btn btn-primary">+ Add New Article</a>
+        <form action="/logout" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-delete">Logout</button>
+        </form>
+    </div>
 </div>
 
 <table class="admin-table">

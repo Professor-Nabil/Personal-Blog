@@ -37,10 +37,10 @@ Ensuring the admin routes are actually private.
   - [x] Apply the middleware to all `/admin/*` routes.
   - [x] Logic: If not logged in, redirect to `/login`.
 
-- [ ] **Commit 5: Logout & Security Polish**
-  - [ ] Add `POST /logout` to clear the session.
-  - [ ] Add a "Logout" button to the Admin Header.
-  - [ ] Final verification: Try accessing `/admin/dashboard` in an Incognito window.
+- [x] **Commit 5: Logout & Security Polish**
+  - [x] Add `POST /logout` to clear the session.
+  - [x] Add a "Logout" button to the Admin Header.
+  - [x] Final verification: Try accessing `/admin/dashboard` in an Incognito window.
 
 ---
 
