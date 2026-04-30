@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
 import { Article } from "./types.js";
+import { initStorage } from "./services/storage.js";
 
 // Fix for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -77,11 +78,14 @@ app.get("/admin/edit/:id", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`
-    ========================================
-    🟢 Server is running on port ${PORT}
-    🔗 URL: http://localhost:${PORT}
-    ========================================
-    `);
-});
+// Initialize storage and then start server
+initStorage()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🟢 Server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to initialize storage:", err);
+    process.exit(1);
+  });
