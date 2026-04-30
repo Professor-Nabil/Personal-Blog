@@ -74,3 +74,19 @@ export const getArticleById = async (id: string): Promise<Article | null> => {
     return null;
   }
 };
+
+/**
+ * Saves an article to the disk.
+ * If the file exists, it overwrites it (Update).
+ * If not, it creates a new one (Create).
+ */
+export const saveArticle = async (article: Article): Promise<void> => {
+  try {
+    const filePath = getFilePath(article.id);
+    const content = JSON.stringify(article, null, 2);
+    await fs.writeFile(filePath, content, "utf-8");
+  } catch (error) {
+    console.error(`Failed to save article ${article.id}:`, error);
+    throw new Error("Storage Error: Could not write to disk.");
+  }
+};

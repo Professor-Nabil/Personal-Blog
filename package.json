@@ -9,7 +9,7 @@
     "test": "vitest",
     "check": "tsc --noEmit",
     "build": "tsc",
-    "tree": "clear; tree -I node_modules -I .git -I wiki -a"
+    "tree": "clear; tree -I node_modules -I .git -I wiki -I dist -a"
   },
   "repository": {
     "type": "git",
