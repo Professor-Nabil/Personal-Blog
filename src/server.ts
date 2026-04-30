@@ -83,6 +83,14 @@ app.get("/admin/new", (req, res) => {
 app.post("/admin/new", async (req, res) => {
   try {
     const { title, date, content } = req.body;
+
+    // --- Basic Validation ---
+    if (!title || title.trim() === "" || !content || content.trim() === "") {
+      return res
+        .status(400)
+        .send("Validation Error: Title and Content are required.");
+    }
+
     const id = Date.now().toString();
     const slug = title
       .toLowerCase()
@@ -116,6 +124,14 @@ app.get("/admin/edit/:id", async (req, res) => {
 app.post("/admin/edit/:id", async (req, res) => {
   try {
     const { title, date, content } = req.body;
+
+    // --- Basic Validation ---
+    if (!title || title.trim() === "" || !content || content.trim() === "") {
+      return res
+        .status(400)
+        .send("Validation Error: Title and Content are required.");
+    }
+
     const { id } = req.params;
 
     // 1. Check if the article exists

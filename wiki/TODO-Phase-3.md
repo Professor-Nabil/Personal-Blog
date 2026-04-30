@@ -42,9 +42,9 @@ Now we connect the service to the Express routes.
 
 ### ✅ Step 3: Final Touches
 
-- [ ] **Commit 6: UX & Validation**
-  - [ ] Add basic validation (e.g., ensure title is not empty).
-  - [ ] Clean up `sample.json` and test the full flow: **Create -> View -> Edit -> Delete**.
+- [x] **Commit 6: UX & Validation**
+  - [x] Add basic validation (e.g., ensure title is not empty).
+  - [x] Clean up `sample.json` and test the full flow: **Create -> View -> Edit -> Delete**.
 
 ---
 
