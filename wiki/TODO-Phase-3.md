@@ -33,10 +33,10 @@ Now we connect the service to the Express routes.
   - [x] Fetch the existing article, update its fields with form data, and save.
   - [x] Redirect to `/admin/dashboard`.
 
-- [ ] **Commit 5: Delete Article Integration**
-  - [ ] Create `POST /admin/delete/:id` route in `server.ts`.
-  - [ ] Call the delete service.
-  - [ ] Redirect to `/admin/dashboard`.
+- [x] **Commit 5: Delete Article Integration**
+  - [x] Create `POST /admin/delete/:id` route in `server.ts`.
+  - [x] Call the delete service.
+  - [x] Redirect to `/admin/dashboard`.
 
 ---
 

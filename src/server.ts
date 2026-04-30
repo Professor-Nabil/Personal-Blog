@@ -7,6 +7,7 @@ import {
   getAllArticles,
   getArticleById,
   saveArticle,
+  deleteArticle,
 } from "./services/storage.js";
 import { Article } from "./types.js";
 
@@ -141,6 +142,24 @@ app.post("/admin/edit/:id", async (req, res) => {
   } catch (error) {
     console.error("Error updating article:", error);
     res.status(500).send("Failed to update article.");
+  }
+});
+
+// 6. Delete Article (POST)
+app.post("/admin/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Call the service to remove the file from src/data
+    await deleteArticle(id);
+
+    console.log(`🗑️ Article ${id} deleted successfully.`);
+
+    // Redirect back to the dashboard to show the updated list
+    res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.error("Error deleting article:", error);
+    res.status(500).send("Failed to delete the article.");
   }
 });
 
