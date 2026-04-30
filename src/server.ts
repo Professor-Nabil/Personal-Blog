@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
+import { Article } from "./types.js";
 
 // Fix for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -19,18 +20,21 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Mock data (we'll move this to a service later)
-const mockArticles = [
+const mockArticles: Article[] = [
   {
     id: "1",
     title: "Getting Started with TypeScript",
+    slug: "getting-started-with-typescript",
     date: "2026-04-20",
+    content: "Full content here...",
     excerpt: "Learning how to use types in Node.js...",
   },
   {
     id: "2",
     title: "Why I love Neovim",
+    slug: "why-i-love-neovim",
     date: "2026-04-25",
+    content: "Full content here...",
     excerpt: "Exploring the best PDE for backend developers...",
   },
 ];

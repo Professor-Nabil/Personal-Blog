@@ -34,7 +34,7 @@ even if the data is just hardcoded for now.
   - [x] Create `src/views/admin/edit.ejs` (same form, but pre-filled with dummy text).
   - [x] Map routes `/admin/dashboard`, `/admin/new`, and `/admin/edit/:id`.
 
-- [ ] **Commit 7: Article Data Schema Definition**
-  - [ ] Create a `src/types.ts` file.
-  - [ ] Define the `Article` interface (id, title, content, date, slug).
-  - [ ] Create a `sample.json` in `src/data/` to use as a reference.
+- [x] **Commit 7: Article Data Schema Definition**
+  - [x] Create a `src/types.ts` file.
+  - [x] Define the `Article` interface (id, title, content, date, slug).
+  - [x] Create a `sample.json` in `src/data/` to use as a reference.
