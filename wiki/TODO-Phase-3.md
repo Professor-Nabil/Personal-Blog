@@ -22,11 +22,11 @@ Before we can use the routes, we need the logic to write data to the disk.
 
 Now we connect the service to the Express routes.
 
-- [ ] **Commit 3: Create Article Integration**
-  - [ ] Create `POST /admin/new` route in `server.ts`.
-  - [ ] Logic to generate a unique `id` (timestamp) and a `slug` (URL-friendly title).
-  - [ ] Extract `excerpt` from the beginning of the content.
-  - [ ] Redirect to `/admin/dashboard` on success.
+- [x] **Commit 3: Create Article Integration**
+  - [x] Create `POST /admin/new` route in `server.ts`.
+  - [x] Logic to generate a unique `id` (timestamp) and a `slug` (URL-friendly title).
+  - [x] Extract `excerpt` from the beginning of the content.
+  - [x] Redirect to `/admin/dashboard` on success.
 
 - [ ] **Commit 4: Update Article Integration**
   - [ ] Create `POST /admin/edit/:id` route in `server.ts`.

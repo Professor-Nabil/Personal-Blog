@@ -2,12 +2,13 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
-// Added getArticleById to the imports
 import {
   initStorage,
   getAllArticles,
   getArticleById,
+  saveArticle,
 } from "./services/storage.js";
+import { Article } from "./types.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -56,32 +57,54 @@ app.get("/article/:id", async (req, res) => {
   }
 });
 
-// --- Admin Routes (Still using mock data temporarily for the dashboard) ---
-// We will fix the Admin Dashboard in the next commit
-
 // --- Admin Routes ---
 
+// 1. Dashboard
 app.get("/admin/dashboard", async (req, res) => {
   try {
-    // Fetch real data from the filesystem
     const articles = await getAllArticles();
-
     res.render("admin/dashboard", {
       title: "Admin Dashboard",
-      articles, // This now contains real Article objects
+      articles,
     });
   } catch (error) {
-    console.error("Error loading admin dashboard:", error);
+    console.error("Error loading dashboard:", error);
     res.status(500).send("Internal Server Error");
   }
 });
 
+// 2. New Article (GET - The one that was missing/broken)
 app.get("/admin/new", (req, res) => {
   res.render("admin/new", { title: "New Article" });
 });
 
+// 3. New Article (POST - Logic from Commit 3)
+app.post("/admin/new", async (req, res) => {
+  try {
+    const { title, date, content } = req.body;
+    const id = Date.now().toString();
+    const slug = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+    const excerpt =
+      content.length > 150 ? content.substring(0, 150) + "..." : content;
+
+    const newArticle: Article = { id, title, slug, date, content, excerpt };
+    await saveArticle(newArticle);
+
+    res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.error("Error creating article:", error);
+    res.status(500).send("Failed to create article.");
+  }
+});
+
+// 4. Edit Article (GET)
 app.get("/admin/edit/:id", async (req, res) => {
   const article = await getArticleById(req.params.id);
+  if (!article) return res.status(404).send("Article not found");
+
   res.render("admin/edit", {
     title: "Update Article",
     article,
