@@ -25,10 +25,10 @@ in one place (`storage.ts`) so our routes stay clean and simple.
   - [x] Replace `mockArticles` with a call to the `Storage Service`.
   - [x] Verify that the Home page displays data from `sample.json`.
 
-- [ ] **Commit 5: Integration - Article Details**
-  - [ ] Update the `GET /article/:id` route in `server.ts`.
-  - [ ] Call the `Storage Service` to fetch a specific post.
-  - [ ] Verify that clicking a post on the home page opens the correct content.
+- [x] **Commit 5: Integration - Article Details**
+  - [x] Update the `GET /article/:id` route in `server.ts`.
+  - [x] Call the `Storage Service` to fetch a specific post.
+  - [x] Verify that clicking a post on the home page opens the correct content.
 
 - [ ] **Commit 6: Integration - Admin Dashboard**
   - [ ] Update the `GET /admin/dashboard` route in `server.ts`.
