@@ -111,6 +111,39 @@ app.get("/admin/edit/:id", async (req, res) => {
   });
 });
 
+// 5. Update Article (POST)
+app.post("/admin/edit/:id", async (req, res) => {
+  try {
+    const { title, date, content } = req.body;
+    const { id } = req.params;
+
+    // 1. Check if the article exists
+    const existingArticle = await getArticleById(id);
+    if (!existingArticle) {
+      return res.status(404).send("Article not found");
+    }
+
+    // 2. Prepare the updated object
+    // We keep the original ID and Slug, but update Title, Date, Content, and Excerpt
+    const updatedArticle: Article = {
+      ...existingArticle, // preserve id and slug
+      title,
+      date,
+      content,
+      excerpt:
+        content.length > 150 ? content.substring(0, 150) + "..." : content,
+    };
+
+    // 3. Save (Overwrites the existing file)
+    await saveArticle(updatedArticle);
+
+    res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.error("Error updating article:", error);
+    res.status(500).send("Failed to update article.");
+  }
+});
+
 // Initialize storage and then start server
 initStorage()
   .then(() => {

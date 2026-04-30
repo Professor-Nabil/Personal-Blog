@@ -28,10 +28,10 @@ Now we connect the service to the Express routes.
   - [x] Extract `excerpt` from the beginning of the content.
   - [x] Redirect to `/admin/dashboard` on success.
 
-- [ ] **Commit 4: Update Article Integration**
-  - [ ] Create `POST /admin/edit/:id` route in `server.ts`.
-  - [ ] Fetch the existing article, update its fields with form data, and save.
-  - [ ] Redirect to `/admin/dashboard`.
+- [x] **Commit 4: Update Article Integration**
+  - [x] Create `POST /admin/edit/:id` route in `server.ts`.
+  - [x] Fetch the existing article, update its fields with form data, and save.
+  - [x] Redirect to `/admin/dashboard`.
 
 - [ ] **Commit 5: Delete Article Integration**
   - [ ] Create `POST /admin/delete/:id` route in `server.ts`.
